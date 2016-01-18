@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header class="header">
+    <%= link_to "Home", root_path %>
+    
+    
+    
+    <% if !user_signed_in? %>
+    <div class="login">
+      <%= link_to "login", new_post_path %>
+      <% end %>
+    </div>
+    
+    <% if user_signed_in? %>
+        <div class="button">
+      <%= link_to "New Post", new_post_path %>
+    </div>
+    
+            <div class="logout">
+      <%= link_to "logout", new_post_path %>
+      <% end %>
+    </div>
+    
+    
+    </header>
+    
+    <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class: "alert") %>
+    <% end %>
+
+
+<%= yield %>
+
+
+
+</body>
+</html>
