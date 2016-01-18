@@ -1,5 +1,4 @@
 <% @posts.each do |post| %>
 
-<h2><%= link_to post.title, post %></h2>
-<h4>by <%=current_user.email %></h4>
+<h2><%= link_to post.title, post %></h2><p><%= current_user.email %></p>
 <% end %>
